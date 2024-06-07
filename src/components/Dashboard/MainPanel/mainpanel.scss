@@ -1,76 +1,240 @@
-@import '@constants/colors.scss';
-@import '@constants/typography.scss';
+@import "@constants/colors.scss";
+@import "@constants/typography.scss";
+
 .main-panel {
-    position: relative;
-    float: right;
-    width: calc(100% - 260px); // total width minus sidebar width
-    transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
-    background-color: $container-bg-color;
-    .main-content-wrapper {
-        padding: 30px 20px;
-        min-height: calc(100vh - 123px);
-        max-width: 2560px;
-        margin-left: auto;
-        margin-right: auto;
-    }
-}
-.full-width-panel {
-    width: 100%;
-}
-.mobile_msg {
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-}
-.mobile_msg p {
-    font: 600 22px/32px var(--primary_font);
-    text-transform: uppercase;
-}
-.main_body_content, .sideBar {
-    overflow-y: auto;
-    overflow-x: hidden;
-    height: 100vh;
-    padding-bottom: 60px;
-}
-.dashboard_screen::-webkit-scrollbar, .main_body_content::-webkit-scrollbar, .sideBar::-webkit-scrollbar {
-    display: none;
-}
-.dashbord_card_sec .al_card{
-    max-width: 100%;
-    height: 100%;
-}
-.container_dashbord{
-    max-height: 100vh;
-    overflow-y: hidden;
-}
-.text-white{
-    text-align: center;
+  position: relative;
+  float: right;
+  width: calc(100% - 240px); // total width minus sidebar width
+  transition: all 0.5s cubic-bezier(0.685, 0.0473, 0.346, 1);
+  background-color: $container-bg-color;
+
+  .main-content-wrapper {
+    padding: 30px 20px;
+    min-height: calc(100vh - 123px);
+    max-width: 2560px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  @media screen and (max-width: 1200px) {
+    width: calc(100% - 300px);
+  }
+
+  @media screen and (max-width: 900px) {
+    width: calc(100% - 250px);
+  }
+
+  @media screen and (max-width: 600px) {
+    width: calc(100% - 200px);
+  }
 }
 
+
+// .main {
+//   width: calc(100% - 240px);
+//   position: fixed;
+//   top: 10%;
+//   left: 11.5%;
+//   height: 90%;
+//   /* Adjust this if necessary */
+//   overflow-y: auto;
+
+//   /* Allow scrolling if content overflows */
+//   @media screen and (max-width: 1700px) {
+//     width: calc(98% - 200px);
+//     left: 13.5%;
+//   }
+
+//   @media screen and (max-width: 1550px) {
+//     width: calc(97% - 200px);
+//     left: 15.5%;
+//   }
+
+//   @media screen and (max-width: 1350px) {
+//     width: calc(97% - 200px);
+//     left: 18%;
+//   }
+
+//   @media screen and (max-width: 1200px) {
+//     width: calc(96% - 200px);
+//     left: 20%;
+//   }
+
+//   @media screen and (max-width: 1024px) {
+//     width: calc(95% - 200px);
+//     left: 23%;
+//   }
+
+//   @media screen and (max-width: 900px) {
+//     width: calc(95% - 200px);
+//     left: 27%;
+//   }
+
+//   @media screen and (max-width: 760px) {
+//     width: calc(100% - 250px);
+//     position: absolute;
+//     left: 40%;
+//   }
+
+//   @media screen and (max-width: 600px) {
+//     width: calc(100% - 200px);
+//   }
+
+//   &::-webkit-scrollbar{
+//     display: none;
+//     scroll-behavior: smooth;
+//   }
+// }
+
+.main {
+  width: calc(100% - 240px);
+  position: fixed;
+  top: 10%;
+  left: 11.5%;
+  // height: 90%;
+  overflow-y: auto;
+
+  @media screen and (min-width: 1550px) {
+    width: 83%;
+    left: 15%;
+    padding-right: 0px !important;
+  }
+
+  @media screen and (max-width: 1550px) {
+    width: 81%;
+    left: 16%;
+  }
+
+  @media screen and (max-width: 1350px) {
+    width: 80%;
+    left: 18%;
+  }
+
+  @media screen and (max-width: 1200px) {
+    width: 75%;
+    left: 23%;
+  }
+
+  @media screen and (max-width: 1024px) {
+    width: 75%;
+    left: 23%;
+  }
+
+  @media screen and (max-width: 900px) {
+    width: 67%;
+    left: 29%;
+  }
+
+  @media screen and (max-width: 760px) {
+    width: calc(100% - 50px);
+    position: absolute;
+    left: 25%;
+  }
+
+  @media screen and (max-width: 600px) {
+    width: calc(100% - 40px);
+    left: 20%;
+  }
+
+  &::-webkit-scrollbar {
+    display: none;
+    scroll-behavior: smooth;
+  }
+}
+
+
+
+
+.full-width-panel {
+  width: 100%;
+}
+
+.mobile_msg {
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.mobile_msg p {
+  font: 600 22px/32px var(--primary_font);
+  text-transform: uppercase;
+}
+
+
+.main_body_content,
+.sideBar {
+  overflow-y: auto;
+  overflow-x: hidden;
+  height: 100vh;
+  padding-bottom: 100px !important;
+}
+
+.main_body_content {
+ 
+    .animation {
+      animation: 0.9s linear 0s infinite alternate slidein;
+  }
+
+  .card_content{
+    // line-height: 5px;
+  }
+}
+
+.dashboard_screen::-webkit-scrollbar,
+.main_body_content::-webkit-scrollbar,
+.sideBar::-webkit-scrollbar {
+  display: none;
+}
+
+.dashbord_card_sec .al_card {
+  max-width: 100%;
+  height: 100%;
+}
+
+.container_dashbord {
+  max-height: 100vh;
+  overflow-y: hidden;
+}
+
+// .text-white {
+//     text-align: center;
+// }
+
 .announcement-bar {
-    width: 100%;
-    padding: 15px 0;
-    background: linear-gradient(90deg, #9600ff33, #9600ff33);
-    color: white;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    position: fixed;
-    top: 0;
-    z-index: 1000;
+  width: 100%;
+  padding: 15px 0;
+  background: linear-gradient(90deg, #9600ff33, #9600ff33);
+  color: white;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  top: 0;
+  z-index: 1000;
 }
 
 .announcement-bar .marquee-content {
-    display: inline-block;
-    animation: marquee 20s linear infinite;
+  display: inline-block;
+  animation: marquee 20s linear infinite;
 }
 
 @keyframes marquee {
-    from {
-        transform: translateX(100%);
-    }
-    to {
-        transform: translateX(-100%);
-    }
+  from {
+    transform: translateX(100%);
+  }
+
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+@keyframes slidein {
+  from {
+    transform: translateX(4px);
+  }
+
+  to {
+    transform: translateX(0px);
+  }
 }

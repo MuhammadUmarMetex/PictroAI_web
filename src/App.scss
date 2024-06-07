@@ -1,6 +1,10 @@
 @import "./constants/colors.scss";
 @import "./constants/typography.scss";
+@import "../node_modules/bootstrap/scss/bootstrap-utilities.scss";
+// @import "../node_modules/bootstrap/scss/utilities";
 @import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
+
 
 :root {
   font-family: $font-primary;
@@ -20,19 +24,32 @@
   --secondary_clr: #1b1717;
   --white_clr: #fff;
   --black_clr: #000000;
+  --light_black: #323232;
   --cta_clr: #9600ff;
+}
+
+.cursor-pointer {
+  cursor: pointer;
 }
 
 .primary_clr {
   color: var(--primary_clr);
 }
 
+
 .white_clr {
   color: var(--white_clr);
+}
+.text-white{
+  color: #fff !important;
 }
 
 .black_clr {
   color: var(--black_clr);
+}
+
+.light_dark{
+  color: var(--light_black) !important;
 }
 
 .cta_clr {
@@ -51,6 +68,10 @@
   background-color: var(--secondary_clr) !important;
 }
 
+.bg_light_dark{
+  background-color: var(--light_black);
+}
+
 .bg_cta {
   background-color: var(--cta_clr);
 }
@@ -60,21 +81,57 @@
   border: 0px !important;
 }
 
+
+// Font weight starts
 .fw-6 {
   font-weight: 600;
 }
-
 .fw-5 {
   font-weight: 500;
 }
+.fw-4 {
+  font-weight: 400;
+}
+.fw-3 {
+  font-weight: 300;
+}
+// Font weight ends 
 
+// Font size start 
+.fs-8 {
+  font-size: 8px;
+}
+.fs-9 {
+  font-size: 9px;
+}
+.fs-10 {
+  font-size: 10px;
+}
 .fs-12 {
   font-size: 12px;
 }
-
 .fs-13 {
   font-size: 13px;
 }
+.fs-x-large {
+  font-size: 18px;
+}
+// Font size ends 
+
+// word spacing start
+.ws-0 { word-spacing: 0; }
+.ws-1 { word-spacing: 0.1rem; }
+.ws-2 { word-spacing: 0.2rem; }
+.ws-3 { word-spacing: 0.3rem; }
+.ws-4 { word-spacing: 0.4rem; }
+.ws-5 { word-spacing: 0.5rem; }
+// word spacing end
+
+// * Custom letter-spacing utility classes */
+.ls-0 { letter-spacing: 0; }
+.ls-1 { letter-spacing: 0.06rem; }
+.ls-2 { letter-spacing: 0.08rem; }
+.ls-3 { letter-spacing: 0.1rem; }
 
 section {
   padding-top: 100px !important;
@@ -85,6 +142,7 @@ body {
   background-color: rgba(18, 19, 23, 1) !important;
   min-height: 100vh;
   overflow: hidden;
+  font-family: $font-primary;
 }
 
 html {
@@ -286,6 +344,9 @@ footer {
 .hero_form button {
   right: 15px !important;
 }
+.hero_form button {
+  top: 5px !important;
+}
 
 .main_footer h4 {
   font: 900 25px/38px var(--primary_font);
@@ -331,9 +392,10 @@ footer {
 /* dashbord CSS */
 .generate_img_sec {
   padding: 20px 32px 28px 32px;
+  // height: 409px;
   background-color: #323232;
   border-radius: 10px;
-  opacity: 0.6;
+  // opacity: 0.6;
 }
 
 .hero_form.position-absolute {
@@ -365,11 +427,12 @@ footer {
 }
 
 .pricing_card.card_basic {
-  background:linear-gradient(140.24deg, rgba(87, 139, 254, 0.12) 1%, rgba(107, 102, 255, 0) 21%), linear-gradient(0deg, #0B0F17, #0B0F17);
+  background: linear-gradient(140.24deg, rgba(87, 139, 254, 0.12) 1%, rgba(107, 102, 255, 0) 21%), linear-gradient(0deg, #0B0F17, #0B0F17);
   box-shadow: 0px 0.73px 2.2px 0px #0000001A;
 }
-.pricing_card_wrapper{
-  
+
+.pricing_card_wrapper {
+
   padding: 22px 15px 56px 15px;
 }
 
@@ -475,59 +538,71 @@ p.pricing_main {
 .card_body ul li img {
   transform: translateY(5px);
 }
-.container_Account{
+
+.container_Account {
   background-color: #02010A;
   min-height: 100vh;
 }
-.profile_tabs{
+
+.profile_tabs {
   padding: 36px;
   background-color: rgb(46 44 44 / 35%);
   border-radius: 18.16px;
 }
-#nav-tab{
+
+#nav-tab {
   display: flex;
   gap: 10px;
 }
-.profile_tabs button{
+
+.profile_tabs button {
   padding: 12px 22px;
   border: 0.91px solid #434343 !important;
   font: 400 14.52px/21.79px var(--primary_font);
   color: #D7D7D7 !important;
   border-radius: 29.05px !important;
 }
-.profile_tabs button.active{
+
+.profile_tabs button.active {
   background: transparent !important;
   border-color: #9600FF !important;
 }
-.profile_cards .card{
+
+.profile_cards .card {
   background: transparent;
   border: 0.91px solid #434343;
   border-radius: 14.52px;
   padding: 22px;
 }
-.profile_cards .d-grid{
+
+.profile_cards .d-grid {
   grid-template-columns: 1fr 1fr;
   gap: 40px;
   margin-bottom: 10px;
 }
-.profile_tabs  .card h2{
+
+.profile_tabs .card h2 {
   font: 600 21.79px/ 30.5px var(--primary_font);
   color: #fff;
 }
-.profile_tabs  .card div.heading{
+
+.profile_tabs .card div.heading {
   border-bottom: 0.91px solid #434343;
   margin-bottom: 23px;
 }
-.profile_tabs  .card div.heading p{
-  font: 600  12.71px/ 12.71px var(--primary_font);
+
+.profile_tabs .card div.heading p {
+  font: 600 12.71px/ 12.71px var(--primary_font);
   color: #fff;
   margin-bottom: 10px;
 }
-div.email span{
-  font: 500  12.71px/ 12.71px var(--primary_font);
+
+div.email span {
+  font: 500 12.71px/ 12.71px var(--primary_font);
   color: #B9B9B9;
 }
-div.username input{
+
+div.username input {
   background: #333333;
   border: 0;
   width: 100%;
@@ -536,19 +611,24 @@ div.username input{
   outline: none;
   color: #fff;
 }
-.profile_tabs_row{
+
+.profile_tabs_row {
   max-width: 1024px;
   margin: auto;
 }
+
 .set_profile {
   gap: 10px;
   align-items: center;
 }
-.file_size{
+
+.file_size {
   font: 400 12.71px/ 17.79px var(--primary_font);
-color: #878787;
+  color: #878787;
 }
-.upload_btn,.remove_btn{
+
+.upload_btn,
+.remove_btn {
   padding: 8px 15px !important;
   color: #fff;
   font: 500 12.71px/ 17.79px var(--primary_font) !important;
@@ -557,27 +637,35 @@ color: #878787;
   background-color: #333333;
   margin-bottom: 6px;
 }
-.upload_btn:hover,.remove_btn:hover{
+
+.upload_btn:hover,
+.remove_btn:hover {
   color: #fff;
   background-color: #333333;
 }
-.upload_btns > div.d-flex{
+
+.upload_btns>div.d-flex {
   align-items: center;
   gap: 10px;
 }
-.credits_cards .card ,.subscription_cards .card{
+
+.credits_cards .card,
+.subscription_cards .card {
   max-width: 271.81px;
   background-color: #434343;
   padding: 25px;
   border-radius: 10.87px;
 }
-.btn_card{
+
+.btn_card {
   margin-top: 15px;
 }
-.subscription_cards .card p{
+
+.subscription_cards .card p {
   font: 400 14px/ 28.99px var(--primary_font) !important;
   color: #EFEFEF;
 }
+
 .free_label {
   font: 600 12.68px/17.76px var(--primary_font) !important;
   color: #fff;
@@ -587,11 +675,24 @@ color: #878787;
   max-width: max-content;
   margin-bottom: 15px;
 }
-.subscription_cards{
+
+.subscription_cards {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
+
+.content {
+  margin-left: 260px;
+  padding: 20px;
+  background-color: #fff;
+  transition: margin-left 0.3s;
+
+  .sidebar.collapsed & {
+    margin-left: 80px;
+  }
+}
+
 @media (max-width: 1200px) {
   .interior_sec .main_card h2 {
     font: 900 45px/70px var(--primary_font);
@@ -621,13 +722,17 @@ color: #878787;
     gap: 20px;
     padding: 20px 20px;
   }
-  .pricing_cards_wrapper{
+
+  .pricing_cards_wrapper {
     flex-wrap: wrap;
   }
-  .pricing_card.card_basic,.pricing_card.card_free{
+
+  .pricing_card.card_basic,
+  .pricing_card.card_free {
     max-width: 48%;
   }
-  .pricing_card.card_standard{
+
+  .pricing_card.card_standard {
     max-width: 100%;
   }
 }
@@ -738,4 +843,29 @@ button:focus-visible {
 
 .ag-center-cols-container {
   min-width: 100%;
+}
+
+html{
+  background: #000;
+}
+body{
+padding: 0px 0px ;
+background: #000;
+@media screen and (min-width: 1500px) {
+  // border: 10px solid rgba(17, 0, 255, 0.342);
+  padding: 0px 10px;
+}
+
+// @media screen and (max-width: 1550px) {
+//   border: 1px solid rgba(255, 0, 0, 0.342);
+//   width: 82%;
+//   left: 16%;
+// }
+
+// @media screen and (max-width: 1350px) {
+//   border: 1px solid red;
+//   width: 80%;
+//   left: 18%;
+// }
+
 }

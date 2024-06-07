@@ -12,11 +12,13 @@
     position:relative;
     margin: 10px 0px 22px 0px;
     width: 100%;
+    // padding-right: 100px;
     label{
-        display: block;
+        display: flex;
         font-family: $font-primary;
         margin-bottom: 2px;
-        font-size: 16px;
+        // font-size: 16px;
+        font-size: medium;
         text-transform: capitalize;
         //handle responsive
         @include respond-to($small-screen) {
@@ -27,18 +29,24 @@
     input[type="text"],input[type="password"],textarea,.custom_select__control{
         font-size: 16px;
         font-family: $font-secondary;
-        border-radius: 5px;
+        width: 302px;
+        height: 52px;
         padding: 6px 7px;
-        border: 1px solid $primary-color;
-        background-color: $light-color;
-        color: $info-color;
-        border-color: $info-color;
+        border: 0.87px solid #D2D2D2;
+        background-color: #000;
+        color: white;
+        border-color: #D2D2D2;
+        border-radius: 6px;
         &::placeholder{
             text-transform: capitalize;
             font-size: 14px;
+            color: #9E9E9E;
         }
         &:focus{
-            outline: 1.5px solid $info-color;
+            outline: 0px solid #D2D2D2;
+            border-color: #D2D2D2;
+            background-color: #000 !important;
+            box-shadow: none;
         }
         
         //handle responsive
@@ -60,7 +68,7 @@
         font-size: 16px;
         color: $info-color !important;
         &:hover{
-            border-color: $info-color;
+            border-color: #D2D2D2;
         }
     }
     // form control radio default styles
@@ -74,7 +82,7 @@
     // validation error message style
     .validation-error{
         font-family: $font-secondary;
-        color: $danger-color;
+        color: #B378FF;
         font-size: 12px;
         margin-top: 5px;
         position: absolute;

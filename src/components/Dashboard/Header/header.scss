@@ -1,0 +1,36 @@
+@import "@constants/colors.scss";
+@import "@constants/typography.scss";
+@import "@constants/media.scss";
+
+
+
+.header {
+    height: 81px;
+    position: fixed;
+    top: 0px;
+    background: #121317;
+    
+    .logo-container {
+
+
+        .logo {
+            width: 200px;
+            /* Default width */
+            height: auto;
+
+            @include respond-to($x-large-screen) {
+                width: 200px;
+            }
+
+            @include respond-to($large-screen) {
+                width: 200px;
+            }
+
+            @include respond-to($small-screen) {
+                width: 200px;
+            }
+
+
+        }
+    }
+}

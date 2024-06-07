@@ -1,6 +1,7 @@
 import React from "react";
-import logo from '../../assets/images/site_logo.svg'
-import {Link} from "react-router-dom";
+import logo from "../../assets/images/site_logo.svg";
+import { Link } from "react-router-dom";
+
 const Header = () => {
   return (
     <header>
@@ -42,9 +43,12 @@ const Header = () => {
               <Link to="login" className="btn text-white fw-6 fs-12">
                 Sign in
               </Link>
-              <Link to="dashboard" className="btn btn-primary border-0 fw-5 fs-13">
+              <Link
+                to="dashboard"
+                className="btn btn-primary border-0 fw-5 fs-13"
+              >
                 Launch Apps
-                </Link>
+              </Link>
             </div>
           </div>
         </div>

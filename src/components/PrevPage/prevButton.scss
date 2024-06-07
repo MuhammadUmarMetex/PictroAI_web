@@ -1,0 +1,42 @@
+@import '@constants/colors.scss';
+@import '@constants/typography.scss';
+@import '@constants/media.scss';
+
+.button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 100;
+
+    @include respond-to($small-screen) {
+        top: -13px;
+        left: -32px;
+    }
+
+
+    &.transparent {
+        background-color: transparent;
+        border: 1px solid white; // Add border for better visibility
+        color: white; // Add text color
+    }
+
+    .button-text {
+        font-size: 1.2rem;
+        font-weight: 600; // Adjust text size as needed
+
+        @include respond-to($small-screen) {}
+    }
+
+    .back-icon {
+        margin-right: 8px;
+        width: 10px; // Adjust the gap between icon and text as needed
+    }
+
+    .back-button {
+        display: flex;
+        align-items: center;
+        text-decoration: none;
+        color: white;
+    }
+
+}

@@ -9,11 +9,15 @@ $light-color: #f8f9fa;
 $dark-color: #343a40;
 $secondary-light:#f4f3ef;
 $primary-border: #d7d7d7;
+$pink-color: #B378FF;
+$dark-pink-color: #9600FF;
+
 // Text Colors
 $text-color: #333;
 $heading-color: #222;
 $link-color: $primary-color;
 $link-hover-color: darken($link-color, 10%);
+
 
 // Background Colors
 $body-bg-color: #fff;
@@ -31,7 +35,9 @@ $btn-info-bg-color: $info-color;
 $btn-warning-color: $warning-color;
 $btn-warning-bg-color: $warning-color;
 $btn-danger-color: $danger-color;
+$btn-pink-bg-color: $pink-color;
 $btn-danger-bg-color: $danger-color;
+$btn-dark-pink-bg-color: $dark-pink-color;
 
 // Form Colors
 $input-border-color: #ccc;

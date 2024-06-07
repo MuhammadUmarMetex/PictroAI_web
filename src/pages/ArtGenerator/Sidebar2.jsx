@@ -2,10 +2,10 @@ import React from "react";
 import "./art-generator.scss";
 import ArtModal from "./ArtModal";
 import ArtStyles from "./ArtStyles";
-import Tool_tip from "@images/icons/tool_tip.svg";
-import Dreamshaper from "@images/icons/Dreamshaper.svg";
-import Down_arrow from "@images/icons/down_arrow.svg";
-import Img_3d from "@images/icons/3d.svg";
+import Tool_tip from "@icons/icons/tool_tip.svg";
+import Dreamshaper from "@icons/icons/Dreamshaper.svg";
+import Down_arrow from "@icons/icons/down_arrow.svg";
+import Img_3d from "@icons/icons/3d.svg";
 
 export default function Sidebar2({
   styles,
@@ -13,12 +13,11 @@ export default function Sidebar2({
   setInputData,
   updateValueForKey,
 }) {
-  // const model=models.filter(m=>m.value===inputData.model)[0]; 
-  const style=styles.filter(s=>s.value===inputData.styles)[0];
+  // const model=models.filter(m=>m.value===inputData.model)[0];
+  const style = styles.filter((s) => s.value === inputData.styles)[0];
   return (
     <>
       <div className="sidebar_wrapper bg-black mt-2">
-       
         <div className="art_styles side_setting">
           <span className="tool_lable text-white ">
             Art Styles
@@ -32,7 +31,12 @@ export default function Sidebar2({
               data-bs-target="#stylesModel"
             >
               <span className="d-flex align-items-center gap-1">
-                <img src={style.icon} className="me-1" alt="icon" height={"30px"} />
+                <img
+                  src={style.icon}
+                  className="me-1"
+                  alt="icon"
+                  height={"30px"}
+                />
                 {style.label}
               </span>
               <img src={Down_arrow} alt="icon" />

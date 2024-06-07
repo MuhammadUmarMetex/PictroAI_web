@@ -2,10 +2,10 @@ import React from "react";
 import "./art-generator.scss";
 import ArtModal from "./ArtModal";
 import ArtStyles from "./ArtStyles";
-import Tool_tip from "@images/icons/tool_tip.svg";
-import Dreamshaper from "@images/icons/Dreamshaper.svg";
-import Down_arrow from "@images/icons/down_arrow.svg";
-import Img_3d from "@images/icons/3d.svg";
+import Tool_tip from "@icons/icons/tool_tip.svg";
+import Dreamshaper from "@icons/icons/Dreamshaper.svg";
+import Down_arrow from "@icons/icons/down_arrow.svg";
+import Img_3d from "@icons/icons/3d.svg";
 
 export default function Sidebar({
   models,
@@ -14,8 +14,8 @@ export default function Sidebar({
   setInputData,
   updateValueForKey,
 }) {
-  const model=models.filter(m=>m.value===inputData.model)[0]; 
-  const style=styles.filter(s=>s.value===inputData.styles)[0];
+  const model = models.filter((m) => m.value === inputData.model)[0];
+  const style = styles.filter((s) => s.value === inputData.styles)[0];
   return (
     <>
       <div className="sidebar_wrapper bg-black mt-2">
@@ -73,7 +73,12 @@ export default function Sidebar({
               data-bs-target="#stylesModel"
             >
               <span className="d-flex align-items-center gap-1">
-                <img src={style.icon} className="me-1" alt="icon" height={"30px"} />
+                <img
+                  src={style.icon}
+                  className="me-1"
+                  alt="icon"
+                  height={"30px"}
+                />
                 {style.label}
               </span>
               <img src={Down_arrow} alt="icon" />
@@ -101,7 +106,9 @@ export default function Sidebar({
             <span className="tool_lable text-white">
               CFG Scale <img src={Tool_tip} alt="icon" className="ms-1" />
             </span>
-            <span className="btn_shape header_icons text-white">{inputData.cfg_scale}</span>
+            <span className="btn_shape header_icons text-white">
+              {inputData.cfg_scale}
+            </span>
           </div>
           <div>
             <form action="">
@@ -110,7 +117,9 @@ export default function Sidebar({
                 value={inputData.cfg_scale}
                 min={1}
                 max={20}
-                onChange={(e) => updateValueForKey("cfg_scale", parseInt(e.target.value,10))}
+                onChange={(e) =>
+                  updateValueForKey("cfg_scale", parseInt(e.target.value, 10))
+                }
                 className="w-100"
               />
             </form>
@@ -122,7 +131,9 @@ export default function Sidebar({
               Step
               <img src={Tool_tip} alt="icon" className="ms-1" />
             </span>
-            <span className="btn_shape header_icons text-white">{inputData.steps}</span>
+            <span className="btn_shape header_icons text-white">
+              {inputData.steps}
+            </span>
           </div>
           <div>
             <form action="">
@@ -131,7 +142,9 @@ export default function Sidebar({
                 max={40}
                 value={inputData.steps}
                 type="range"
-                onChange={(e) => updateValueForKey("steps", parseInt(e.target.value))}
+                onChange={(e) =>
+                  updateValueForKey("steps", parseInt(e.target.value))
+                }
                 className="w-100"
               />
             </form>
@@ -143,19 +156,17 @@ export default function Sidebar({
               Seed
               <img src={Tool_tip} alt="icon" className="ms-1" />
             </span>
-            <span
-              className="btn_shape header_icons text-white"
-            >
-              30
-            </span>
+            <span className="btn_shape header_icons text-white">30</span>
           </div>
           <div>
-              <input
-                type="number"
-                placeholder="Enter a seed"
-                className="text-white"
-                onChange={(e)=>updateValueForKey("seed",parseInt(e.target.value,10))}
-              />
+            <input
+              type="number"
+              placeholder="Enter a seed"
+              className="text-white"
+              onChange={(e) =>
+                updateValueForKey("seed", parseInt(e.target.value, 10))
+              }
+            />
           </div>
         </div>
       </div>

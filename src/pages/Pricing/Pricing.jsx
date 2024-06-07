@@ -13,9 +13,7 @@ const Dashboard = () => {
         <section className="container-fluid container_dashbord pb-0 pt-5 d-md-block d-none">
           <div className="container-xl">
             <div className="row">
-              <div className="col-3">
-                <Sidebar />
-              </div>
+              <div className="col-3">{/* <Sidebar /> */}</div>
               <div className="col-9">
                 <div className="pricing_wrapper">
                   <h1 className="text-white text-center pricing_main">
@@ -84,7 +82,10 @@ const Dashboard = () => {
                             Billed yearly, ex. tax
                           </span> */}
                           <div className="plan_btn text-center mt-4">
-                            <a href="https://buy.stripe.com/test_9AQ28xbh5eHgemA289" className="btn btn-primary border-0">
+                            <a
+                              href="https://buy.stripe.com/test_9AQ28xbh5eHgemA289"
+                              className="btn btn-primary border-0"
+                            >
                               Subscribe To Basic
                             </a>
                           </div>
@@ -136,7 +137,10 @@ const Dashboard = () => {
                             Billed yearly, ex. tax
                           </span> */}
                           <div className="plan_btn text-center mt-4">
-                            <a href="https://buy.stripe.com/test_bIYeVjgBp9mWfqE7ss" className="btn btn-primary border-0">
+                            <a
+                              href="https://buy.stripe.com/test_bIYeVjgBp9mWfqE7ss"
+                              className="btn btn-primary border-0"
+                            >
                               Subscribe To Standard
                             </a>
                           </div>

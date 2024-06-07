@@ -1,9 +1,15 @@
 import React, { useState } from "react";
+
+import { Link } from "react-router-dom";
+import { Nav } from "react-bootstrap";
+// import './Sidebar.scss';
 import "./art-generator.scss";
+
 import TopBar from "./TopBar";
 import SideBar from "./Sidebar";
+
 import img from "@images/generate_tool_img.png";
-import { useSelector } from 'react-redux';
+import { useSelector } from "react-redux";
 import axiosWrapper from "../../utils/api";
 import art_gen_card1 from "@images/model1.svg";
 import art_gen_card2 from "@images/model2.svg";
@@ -14,7 +20,7 @@ import art_gen_card6 from "@images/model6.svg";
 import art_gen_card7 from "@images/model7.svg";
 import art_gen_card8 from "@images/model8.svg";
 import art_gen_card9 from "@images/model9.svg";
-import Dreamshaper from "@images/icons/Dreamshaper.svg";
+import Dreamshaper from "@icons/icons/Dreamshaper.svg";
 import img1 from "@images/style1.svg";
 import img2 from "@images/style2.svg";
 import img3 from "@images/style3.svg";
@@ -27,74 +33,70 @@ import img9 from "@images/style9.svg";
 import img10 from "@images/style10.svg";
 import img11 from "@images/style11.svg";
 import img12 from "@images/style12.svg";
-import premium_icon from "/src/assets/icons/Manage.png"
+import premium_icon from "/src/assets/icons/Manage.png";
+// components
+import ArtGenSidebar from "./TextToArt/Sidebar/ArtGenSidebar";
 
 export default function FormText() {
-    const { userToken } = useSelector((state) => state?.auth);
-    const [responseImg,setResponseImgUrl]=useState(img);
-    const styles = [
-        { value: "3D Model", label: "Pictro Cartoon", icon: img8 },
-        { value: "Analog Film", label: "Professional 3D Model", icon: img12 },
-        { value: "Anime", label: "Anime Artwork", icon: img10 },
-        { value: "Cinematic", label: "Breathtaking", icon: img9 , premium: true },
-        { value: "Comic Book", label: "Fantasy Art", icon: img5 },
-        { value: "Digital Art", label: "Anime Artwork", icon: img2 },
-        { value: "Enhance", label: "Breathtaking", icon: img3 },
-        { value: "Fantasy Art", label: "Fantasy Art", icon: img4,premium: true },
-        { value: "Isometric Style", label: "Anime Artwork", icon: img6 },
-        { value: "Line Art", label: "Breathtaking", icon: img7 },
-        { value: "Lowpoly", label: "Fantasy Art", icon: img11 },
+  const { userToken } = useSelector((state) => state?.auth);
+  const [responseImg, setResponseImgUrl] = useState(img);
+  const styles = [
+    { value: "3D Model", label: "Pictro Cartoon", icon: img8 },
+    { value: "Analog Film", label: "Professional 3D Model", icon: img12 },
+    { value: "Anime", label: "Anime Artwork", icon: img10 },
+    { value: "Cinematic", label: "Breathtaking", icon: img9, premium: true },
+    { value: "Comic Book", label: "Fantasy Art", icon: img5 },
+    { value: "Digital Art", label: "Anime Artwork", icon: img2 },
+    { value: "Enhance", label: "Breathtaking", icon: img3 },
+    { value: "Fantasy Art", label: "Fantasy Art", icon: img4, premium: true },
+    { value: "Isometric Style", label: "Anime Artwork", icon: img6 },
+    { value: "Line Art", label: "Breathtaking", icon: img7 },
+    { value: "Lowpoly", label: "Fantasy Art", icon: img11 },
 
+    { value: "Craft Clay", label: "Watercolor Anime (default)", icon: img1 },
+  ];
+  const models = [
+    {
+      name: "Epic Realism",
+      value: "epicrealism_pureEvolutionV4",
+      icon: art_gen_card3,
+      premium: true,
+    },
+    {
+      name: "Majic",
+      value: "majicmixRealistic_betterV2V25",
+      icon: art_gen_card1,
+    },
+    {
+      name: "Realistic vision",
+      value: "realisticVisionV51_v51VAE",
+      icon: art_gen_card7,
+    },
 
-        { value: "Craft Clay", label: "Watercolor Anime (default)", icon: img1 },
-      ];
-    const models = [
-        {
-          name: "Epic Realism",
-          value: "epicrealism_pureEvolutionV4",
-          icon: art_gen_card3,
-          premium: true
-        },
-        {
-          name: "Majic",
-          value: "majicmixRealistic_betterV2V25",
-          icon: art_gen_card1,
+    {
+      name: "Meinamix",
+      value: "meinamix_meinaV11",
+      icon: art_gen_card2,
+      premium: true,
+    },
 
-        },
-        {
-          name: "Realistic vision",
-          value: "realisticVisionV51_v51VAE",
-          icon: art_gen_card7,
-        },
+    {
+      name: "Diffusion",
+      value: "epicDiffusion_epicDiffusion11",
+      icon: art_gen_card4,
+      premium: true,
+    },
 
-
-
-        {
-          name: "Meinamix",
-          value: "meinamix_meinaV11",
-          icon: art_gen_card2,
-          premium: true
-        },
-
-        {
-          name: "Diffusion",
-          value: "epicDiffusion_epicDiffusion11",
-          icon: art_gen_card4,
-          premium: true
-        },
-
-        {
-          name: "Dreamshaper",
-          value: "dreamshaper_8",
-          icon: art_gen_card9,
-        },
-
-
-
-      ];  
+    {
+      name: "Dreamshaper",
+      value: "dreamshaper_8",
+      icon: art_gen_card9,
+    },
+  ];
   const [textData, setTextData] = useState({
     model: "epicrealism_pureEvolutionV4",
-    prompt: "Portrait of a child playing in a park, using natural lighting and candid expressions",
+    prompt:
+      "Portrait of a child playing in a park, using natural lighting and candid expressions",
     negative_prompt: "none",
     seed: 11,
     styles: "Craft Clay",
@@ -124,7 +126,12 @@ export default function FormText() {
 
   const generateImage = async () => {
     try {
-      const response = await axiosWrapper("post", `/artgen/`, textData,userToken);
+      const response = await axiosWrapper(
+        "post",
+        `/artgen/`,
+        textData,
+        userToken,
+      );
       setResponseImgUrl(response.image_url);
     } catch (error) {
       console.log(error);
@@ -137,6 +144,9 @@ export default function FormText() {
         <header className="art_header bg-black">
           <TopBar />
         </header>
+        <aside>
+          <ArtGenSidebar />
+        </aside>
         <main>
           <section className="container-fluid token py-0">
             <div className="row h-100">
@@ -147,21 +157,21 @@ export default function FormText() {
                   </div>
                   <div class="generate_form my-5 pt-5">
                     <div class="hero_form">
-                        <input
-                          type="text"
-                          placeholder="A man on mars"
-                          class="w-100 p-3"
-                          onChange={(e) =>
-                            updateValueForKey("prompt", e.target.value)
-                          }
-                        />
-                        <button
-                          class="btn btn-primary position-absolute"
-                          onClick={generateImage}
-                        >
-                          <i class="bi bi-star-fill"></i>
-                          Generate
-                        </button>
+                      <input
+                        type="text"
+                        placeholder="A man on mars"
+                        class="w-100 p-3"
+                        onChange={(e) =>
+                          updateValueForKey("prompt", e.target.value)
+                        }
+                      />
+                      <button
+                        class="btn btn-primary position-absolute"
+                        onClick={generateImage}
+                      >
+                        <i class="bi bi-star-fill"></i>
+                        Generate
+                      </button>
                     </div>
                   </div>
                 </div>

@@ -22,13 +22,13 @@ const ProfileDropdown = () => {
   };
 
   return (
-    <Dropdown className="profile-dropdown " onToggle={toggleDropdown}>
+    <Dropdown className="profile-dropdown" onToggle={toggleDropdown}>
       <Dropdown.Toggle id="profile-dropdown-toggle" className="p-0">
-        <img src={userImg} alt="user-img" />
-        <span className="text-white">Hello {username}</span>
+        <img src={userImg} alt="user-img" width="40px" height="50" />
+        {/* <span className="text-white">Hello {username}</span> */}
         <FontAwesomeIcon
           className={show ? "angle-up dropdown_icon" : ""}
-          icon={faAngleDown}
+          // icon={faAngleDown}
         />
       </Dropdown.Toggle>
       <Dropdown.Menu show={show} id="profile-dropdown-menu">
